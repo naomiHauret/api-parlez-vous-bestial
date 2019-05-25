@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "alias": "",
+  "env": {
+    "DATABASE_NAME": "",
+    "DATABASE_USER": "",
+    "DATABASE_PSW": "",
+    "DATABASE_REMOTE": ""
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/next"
+    },
+    {
+      "src": "/lambda/api/questions/get.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "/lambda/api/answers/get.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "/lambda/api/answers/post.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "/lambda/api/emotions/get.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "/lambda/api/emotions/post.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/_next/static/(?:[^/]+/pages|chunks|runtime)/.+",
+      "headers": {
+        "cache-control": "immutable"
+      }
+    },
+    {
+      "src": "/api/questions",
+      "dest": "/lambda/api/questions/get.js"
+    },
+    {
+      "src": "/api/answers",
+      "dest": "/lambda/api/answers/get.js"
+    },
+    {
+      "src": "/api/emotions",
+      "dest": "/lambda/api/emotions/get.js"
+    },
+    {
+      "src": "/api/answers/(?<to>[^/]+)$",
+      "dest": "/lambda/api/answers/get.js"
+    },
+    {
+      "src": "/api/answers/(?<to>[^/]+)/(?<isAnswerYes>true|false)$",
+      "dest": "/lambda/api/answers/get.js"
+    },
+    {
+      "src": "/api/answer",
+      "dest": "/lambda/api/answers/post.js"
+    },
+    {
+      "src": "/api/emotion",
+      "dest": "/lambda/api/emotions/post.js"
+    }
+  ]
+}
