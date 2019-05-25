@@ -1,0 +1,30 @@
+{
+  "name": "api-parlez-vous-bestial",
+  "version": "1.0.0",
+  "description": "API for Parlez-vous bestial project.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "now dev",
+    "build": "next build",
+    "dev:start": "npm run build && npm run dev",
+    "start": "next start",
+    "now-build": "next build",
+    "preprod:deploy": "now",
+    "deploy": "now --target production",
+    "format:js": "npx prettier --parser=babel --write \"lambda/**/*.js\"",
+    "format": "npm run format:js"
+  },
+  "author": "Naomi Hauret",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.6",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "next-compose-plugins": "^2.2.0"
+  }
+}
