@@ -4,7 +4,7 @@
 const app = require("./../../utils/app")
 const EmotionModel = require("./../../models/Emotion")
 
-app.get("/api/emotion", (req, res) => {
+app.post("/api/emotion", (req, res) => {
   const emotion = new EmotionModel({
     emotionUID: req.body.uid,
   })
