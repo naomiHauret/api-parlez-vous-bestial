@@ -4,7 +4,7 @@
 const app = require("./../../utils/app")
 const AnswerModel = require("./../../models/Answer")
 
-app.get("*", (req, res) => {
+app.get("/api/answer", (req, res) => {
   const answer = new AnswerModel({
     questionUID: req.body.uid,
     isAnswerYes: req.body.answer,
