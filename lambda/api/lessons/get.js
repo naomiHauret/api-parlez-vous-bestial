@@ -2,7 +2,7 @@
 // Get all lessons from DB
 
 const app = require("./../../utils/app")
-const LessonModel = require("./../../modelslLesson")
+const LessonModel = require("./../../models/Lesson")
 
 app
   .get("/api/lessons", (req, res) => {
