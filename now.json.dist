@@ -31,6 +31,14 @@
     {
       "src": "/lambda/api/emotions/post.js",
       "use": "@now/node"
+    },
+    {
+      "src": "/lambda/api/lessons/get.js",
+      "use": "@now/node"
+    },
+    {
+      "src": "/lambda/api/lessons/post.js",
+      "use": "@now/node"
     }
   ],
   "routes": [
@@ -67,6 +75,19 @@
     {
       "src": "/api/emotion",
       "dest": "/lambda/api/emotions/post.js"
+    },
+    {
+      "src": "/api/lessons",
+      "dest": "/lambda/api/lessons/get.js"
+    },
+    {
+      "src": "/api/lessons/(?<uid>[^/]+)$",
+      "dest": "/lambda/api/lessons/get.js"
+    },
+,
+    {
+      "src": "/api/lesson",
+      "dest": "/lambda/api/lessons/post.js"
     }
   ]
 }
